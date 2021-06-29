@@ -1,0 +1,272 @@
+{% load static %}
+<!doctype html>
+    <html lang="en">
+
+    <head>
+        
+        <meta charset="utf-8" />
+        <title>Edit Record | Coding Challenge</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="Coding Challenge" name="description" />
+        <meta content="Coding Challenge" name="author" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="{% static 'assets/images/favicon.ico'%}">
+
+        <!-- Bootstrap Css -->
+        <link href="{% static 'assets/css/bootstrap.min.css'%}" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <!-- Icons Css -->
+        <link href="{% static 'assets/css/icons.min.css'%}" rel="stylesheet" type="text/css" />
+        <!-- App Css-->
+        <link href="{% static 'assets/css/app.min.css'%}" id="app-style" rel="stylesheet" type="text/css" />
+
+    </head>
+
+    
+    <body>
+
+        <!-- <body data-layout="horizontal" data-topbar="colored"> -->
+
+            <!-- Begin page -->
+            <div id="layout-wrapper">
+
+                
+                <header id="page-topbar">
+                    <div class="navbar-header">
+                        <div class="d-flex">
+                            <!-- LOGO -->
+                            <div class="navbar-brand-box">
+                                <a href="{% url '_home' %}" class="logo logo-dark">
+                                    <span class="logo-sm">
+                                        <img src="{% static 'logo2.jpeg'%}" alt="" height="80">
+                                    </span>
+                                    <span class="logo-lg">
+                                        <img src="{% static 'logo2.jpeg'%}" alt="" height="80">
+                                    </span>
+                                </a>
+
+                                <a href="{% url '_home' %}" class="logo logo-light">
+                                    <span class="logo-sm">
+                                        <img src="{% static 'logo2.jpeg'%}" alt="" height="80">
+                                    </span>
+                                    <span class="logo-lg">
+                                        <img src="{% static 'logo2.jpeg'%}" alt="" height="80">
+                                    </span>
+                                </a>
+                            </div>
+
+                            <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect vertical-menu-btn">
+                                <i class="fa fa-fw fa-bars"></i>
+                            </button>
+
+                            <!-- App Search-->
+                            
+                        </div>
+
+                        <div class="d-flex">
+
+                            <div class="dropdown d-inline-block">
+                                <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="rounded-circle header-profile-user" src="{% static 'assets/images/users/avatar-4.jpg'%}"
+                                alt="Header Avatar">
+                                <span class="d-none d-xl-inline-block ms-1 fw-medium font-size-15">USER</span>
+                                <i class="uil-angle-down d-none d-xl-inline-block font-size-15"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <!-- item-->
+                                <a class="dropdown-item" href="{% url 'logout' %}"><i class="uil uil-sign-out-alt font-size-18 align-middle me-1 text-muted"></i> <span class="align-middle">Sign out</span></a>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </header>
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="vertical-menu">
+
+                <!-- LOGO -->
+                <div class="navbar-brand-box">
+                    <a href="{% url '_home' %}" class="logo logo-dark">
+                        <span class="logo-sm">
+                            <img src="{% static 'logo2.jpeg'%}" alt="" height="80">
+                        </span>
+                        <span class="logo-lg">
+                            <img src="{% static 'logo2.jpeg'%}" alt="" height="80">
+                        </span>
+                    </a>
+
+                    <a href="{% url '_home' %}" class="logo logo-light">
+                        <span class="logo-sm">
+                            <img src="{% static 'logo2.jpeg'%}" alt="" height="80">
+                        </span>
+                        <span class="logo-lg">
+                            <img src="{% static 'logo2.jpeg'%}" alt="" height="80">
+                        </span>
+                    </a>
+                </div>
+
+                <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect vertical-menu-btn">
+                    <i class="fa fa-fw fa-bars"></i>
+                </button>
+
+                <div data-simplebar class="sidebar-menu-scroll">
+
+                    <!--- Sidemenu -->
+                    <div id="sidebar-menu">
+                        <!-- Left Menu Start -->
+                        <ul class="metismenu list-unstyled" id="side-menu">
+                            <li class="menu-title">Menu</li>
+
+                            <li>
+                                <a href="{% url '_home' %}">
+                                    <i class="uil-home-alt"></i>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{% url 'logout' %}" class="waves-effect">
+                                    <i class="uil uil-sign-out-alt font-size-18 align-middle me-1 text-muted"></i>
+                                    <span>Logout</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <!-- Sidebar -->
+                </div>
+            </div>
+            <!-- Left Sidebar End -->
+
+            
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+
+                <div class="page-content">
+                    <div class="container-fluid">
+
+                        <!-- start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box d-flex align-items-center justify-content-between">
+                                    <h4 class="mb-0">Update User</h4>
+
+                                    <div class="page-title-right">
+                                        <a href="{% url '_home' %}"><button type="button" class="btn btn-primary w-md">Back</button></a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end page title -->
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        
+                                        <h4 class="card-title">User Information</h4><br>
+                                        <form action="{% url 'update_record' %}" method="post">
+                                            {% csrf_token %}
+                                            <div class="mb-3 row">
+                                                <label for="example-text-input" class="col-md-2 col-form-label">First Name</label>
+                                                <div class="col-md-10">
+                                                    <input type="hidden" name="id" value="{{rec.id}}">
+                                                    <input class="form-control" type="text" name="firstname" value="{{rec.firstname}}" id="example-text-input" required>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <label for="example-search-input" class="col-md-2 col-form-label">Last Name</label>
+                                                <div class="col-md-10">
+                                                    <input class="form-control" type="text" name="lastname" value="{{rec.lastname}}" id="example-search-input" required>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <label for="example-email-input" class="col-md-2 col-form-label">Email</label>
+                                                <div class="col-md-10">
+                                                    <input class="form-control" type="email" name="email" value="{{rec.email}}" id="example-email-input" required>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <label for="example-email-input" class="col-md-2 col-form-label">Mobile Number</label>
+                                                <div class="col-md-10">
+                                                    <input class="form-control" type="text" name="mobile" value="{{rec.phone}}" id="example-email-input" required>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <label for="example-date-input" class="col-md-2 col-form-label">Date of Birth</label>
+                                                <div class="col-md-10">
+                                                    <input class="form-control" type="date" name="dob" value="{{rec.dob}}" id="example-date-input" required>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="mb-3 row">
+                                                <label class="col-md-2 col-form-label">Gender</label>
+                                                <div class="col-md-10">
+                                                    <select class="form-select" name="gender" required>
+                                                        <option value="male">Male</option>
+                                                        <option value="female">Female</option>
+                                                        <option value="others">Others</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <label for="example-email-input" class="col-md-2 col-form-label">Nationality</label>
+                                                <div class="col-md-10">
+                                                    <input class="form-control" type="text" name="nationality" value="{{rec.nationality}}" id="example-email-input" required>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn btn-primary">Update User</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div> <!-- end col -->
+                        </div>
+                        <!-- end row -->
+                        
+                    </div> <!-- container-fluid -->
+                </div>
+                <!-- End Page-content -->
+
+                
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                &copy; {% now "Y" %} Coding Challenge.
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <!-- end main content-->
+
+        </div>
+        <!-- END layout-wrapper -->
+
+        <!-- Right Sidebar -->
+        
+        <!-- /Right-bar -->
+
+        <!-- Right bar overlay-->
+        <div class="rightbar-overlay"></div>
+
+        <!-- JAVASCRIPT -->
+        <script src="{% static 'assets/libs/jquery/jquery.min.js'%}"></script>
+        <script src="{% static 'assets/libs/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+        <script src="{% static 'assets/libs/metismenu/metisMenu.min.js'%}"></script>
+        <script src="{% static 'assets/libs/simplebar/simplebar.min.js'%}"></script>
+        <script src="{% static 'assets/libs/node-waves/waves.min.js'%}"></script>
+        <script src="{% static 'assets/libs/waypoints/lib/jquery.waypoints.min.js'%}"></script>
+        <script src="{% static 'assets/libs/jquery.counterup/jquery.counterup.min.js'%}"></script>
+
+        <!-- App js -->
+        {% comment %} <script src="{% static 'assets/js/app.js'%}"></script> {% endcomment %}
+
+    </body>
+    </html>

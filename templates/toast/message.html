@@ -1,0 +1,17 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'notify/toastr.css' %}" media="all">
+<script src="{% static 'notify/jquery-1.9.1.min.js'%}"></script>
+<script type="text/javascript" src="{% static 'notify/toastr.min.js' %}"></script>  
+{% if messages %}
+    {% for message in messages %}
+        {% if message.tags == 'success'%}
+            <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+        {% elif message.tags == 'info' %}
+            <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+        {% elif message.tags == 'warning' %}
+            <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+        {% elif message.tags == 'error' %}
+            <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+        {% endif %}
+    {% endfor %}
+{% endif %}

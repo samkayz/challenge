@@ -1,0 +1,348 @@
+{% load static %}
+<!doctype html>
+    <html lang="en">
+    <head>
+        
+        <meta charset="utf-8" />
+        <title>Dashboard | Coding Challenge</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="Coding Challenge" name="description" />
+        <meta content="Coding Challenge" name="author" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="{% static 'assets/images/favicon.ico'%}">
+
+        <!-- DataTables -->
+        <link href="{% static 'assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css'%}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css'%}" rel="stylesheet" type="text/css" />
+
+        <!-- Responsive datatable examples -->
+        <link href="{% static 'assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css'%}" rel="stylesheet" type="text/css" />     
+
+        <!-- Bootstrap Css -->
+        <link href="{% static 'assets/css/bootstrap.min.css'%}" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <!-- Icons Css -->
+        <link href="{% static 'assets/css/icons.min.css'%}" rel="stylesheet" type="text/css" />
+        <!-- App Css-->
+        <link href="{% static 'assets/css/app.min.css'%}" id="app-style" rel="stylesheet" type="text/css" />
+
+    </head>
+
+    
+    <body>
+
+        <!-- <body data-layout="horizontal" data-topbar="colored"> -->
+
+            <!-- Begin page -->
+            <div id="layout-wrapper">
+
+                
+                <header id="page-topbar">
+                    <div class="navbar-header">
+                        <div class="d-flex">
+                            <!-- LOGO -->
+                            <div class="navbar-brand-box">
+                                <a href="{% url '_home' %}" class="logo logo-dark">
+                                    <span class="logo-sm">
+                                        <img src="{% static 'logo2.jpeg'%}" alt="" height="80">
+                                    </span>
+                                    <span class="logo-lg">
+                                        <img src="{% static 'logo2.jpeg'%}" alt="" height="80">
+                                    </span>
+                                </a>
+
+                                <a href="{% url '_home' %}" class="logo logo-light">
+                                    <span class="logo-sm">
+                                        <img src="{% static 'logo2.jpeg'%}" alt="" height="80">
+                                    </span>
+                                    <span class="logo-lg">
+                                        <img src="{% static 'logo2.jpeg'%}" alt="" height="80">
+                                    </span>
+                                </a>
+                            </div>
+
+                            <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect vertical-menu-btn">
+                                <i class="fa fa-fw fa-bars"></i>
+                            </button>
+
+                            <!-- App Search-->
+                            
+                        </div>
+
+                        <div class="d-flex">
+
+                            <div class="dropdown d-inline-block">
+                                <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="rounded-circle header-profile-user" src="{% static 'assets/images/users/avatar-4.jpg'%}"
+                                alt="Header Avatar">
+                                <span class="d-none d-xl-inline-block ms-1 fw-medium font-size-15">USER</span>
+                                <i class="uil-angle-down d-none d-xl-inline-block font-size-15"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <!-- item-->
+                                <a class="dropdown-item" href="{% url 'logout' %}"><i class="uil uil-sign-out-alt font-size-18 align-middle me-1 text-muted"></i> <span class="align-middle">Sign out</span></a>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </header>
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="vertical-menu">
+
+                <!-- LOGO -->
+                <div class="navbar-brand-box">
+                    <a href="{% url '_home' %}" class="logo logo-dark">
+                        <span class="logo-sm">
+                            <img src="{% static 'logo2.jpeg'%}" alt="" height="80">
+                        </span>
+                        <span class="logo-lg">
+                            <img src="{% static 'logo2.jpeg'%}" alt="" height="80">
+                        </span>
+                    </a>
+
+                    <a href="{% url '_home' %}" class="logo logo-light">
+                        <span class="logo-sm">
+                            <img src="{% static 'logo2.jpeg'%}" alt="" height="80">
+                        </span>
+                        <span class="logo-lg">
+                            <img src="{% static 'logo2.jpeg'%}" alt="" height="80">
+                        </span>
+                    </a>
+                </div>
+
+                <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect vertical-menu-btn">
+                    <i class="fa fa-fw fa-bars"></i>
+                </button>
+
+                <div data-simplebar class="sidebar-menu-scroll">
+
+                    <!--- Sidemenu -->
+                    <div id="sidebar-menu">
+                        <!-- Left Menu Start -->
+                        <ul class="metismenu list-unstyled" id="side-menu">
+                            <li class="menu-title">Menu</li>
+
+                            <li>
+                                <a href="{% url '_home' %}">
+                                    <i class="uil-home-alt"></i>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{% url 'logout' %}" class="waves-effect">
+                                    <i class="uil uil-sign-out-alt font-size-18 align-middle me-1 text-muted"></i>
+                                    <span>Logout</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <!-- Sidebar -->
+                </div>
+            </div>
+            <!-- Left Sidebar End -->
+
+            
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+                {% include 'toast/message.html' %}
+                <div class="page-content">
+                    <div class="container-fluid">
+
+                        <!-- start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box d-flex align-items-center justify-content-between">
+
+                                    <div class="page-title-right">
+                                        <ol class="breadcrumb m-0">
+                                            <div class="mt-4">
+                                                {% comment %} <button type="submit" class="btn btn-primary w-md">Create New User</button> {% endcomment %}
+                                                <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#exampleModalScrollable">Create New User</button>
+                                            </div>
+                                        </ol>
+                                    </div>
+                                    <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-scrollable">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalScrollableTitle">New User</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="{% url 'handle_form' %}" method="post">
+                                                        {% csrf_token %}
+                                                        <div class="row mb-4">
+                                                            <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">First name</label>
+                                                            <div class="col-sm-9">
+                                                              <input type="text" class="form-control" name="firstname" id="horizontal-firstname-input" placeholder="First name" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mb-4">
+                                                            <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Last name</label>
+                                                            <div class="col-sm-9">
+                                                              <input type="text" class="form-control" name="lastname" id="horizontal-firstname-input" placeholder="Last name" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mb-4">
+                                                            <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Gender</label>
+                                                            <div class="col-sm-9">
+                                                              <select class="form-control" name="gender">
+                                                                <option value="male">Male</option>
+                                                                <option value="female">Female</option>
+                                                                <option value="others">Others</option>
+                                                              </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mb-4">
+                                                            <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Email</label>
+                                                            <div class="col-sm-9">
+                                                              <input type="text" class="form-control" name="email" id="horizontal-firstname-input" placeholder="Email Address" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mb-4">
+                                                            <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Mobile Number</label>
+                                                            <div class="col-sm-9">
+                                                              <input type="text" class="form-control" name="mobile" id="horizontal-firstname-input" placeholder="Mobile Number" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mb-4">
+                                                            <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Date of Birth</label>
+                                                            <div class="col-sm-9">
+                                                              <input type="date" class="form-control" name="dob" id="horizontal-firstname-input" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mb-4">
+                                                            <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Nationality</label>
+                                                            <div class="col-sm-9">
+                                                              <input type="text" class="form-control" name="nationality" id="horizontal-firstname-input" placeholder="Nationality" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                                                            <button type="submit" class="btn btn-primary">Create User</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div><!-- /.modal-content -->
+                                        </div><!-- /.modal-dialog -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end page title -->
+                        
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        
+                                        <h4 class="card-title">All USer</h4><br><br>
+                                        <form action="{% url 'deleteSelected' %}" method="post">
+                                        {% csrf_token %}
+                                        <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                            <thead>
+                                                <tr>
+                                                   <th></th>
+                                                   <th>Fullname</th>
+                                                   <th>Mobile Number</th>
+                                                   <th>Email</th>
+                                                   <th>Gender</th>
+                                                   <th>DOB</th>
+                                                   <th>Nationality</th>
+                                                   <th>Action</th>
+                                               </tr>
+                                           </thead>
+                                           
+                                           <tbody>
+                                           {% for data in show %}
+                                            <tr>
+                                                <td>
+                                                    <input type="checkbox" name="selected" value="{{data.id}}" />
+                                                </td>
+                                                <td>{{data.firstname}} {{data.lastname}}</td>
+                                                <td>{{data.phone}}</td>
+                                                <td>{{data.email}}</td>
+                                                <td>{{data.gender}}</td>
+                                                <td>{{data.dob}}</td>
+                                                <td>{{data.nationality}}</td>
+                                                <td>
+                                                    <a href="/delete_user/{{data.id}}"><button type="button" class="btn btn-danger waves-effect waves-light">Delete</button></a>
+                                                    <a href="/edit_user/{{data.id}}"><button type="button" class="btn btn-success waves-effect waves-light">Edit</button></a>
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                    <button type="submit" class="btn btn-danger waves-effect waves-light">Delete Selected</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div> <!-- end col -->
+                    </div> <!-- end row -->
+                    
+                    <!-- end row -->
+
+                </div> <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+
+            
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            &copy; {% now "Y" %} Coding Challenge.
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+
+    <!-- Right bar overlay-->
+    <div class="rightbar-overlay"></div>
+
+    <!-- JAVASCRIPT -->
+    <script src="{% static 'assets/libs/jquery/jquery.min.js'%}"></script>
+    <script src="{% static 'assets/libs/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+    <script src="{% static 'assets/libs/metismenu/metisMenu.min.js'%}"></script>
+    <script src="{% static 'assets/libs/simplebar/simplebar.min.js'%}"></script>
+    <script src="{% static 'assets/libs/node-waves/waves.min.js'%}"></script>
+    <script src="{% static 'assets/libs/waypoints/lib/jquery.waypoints.min.js'%}"></script>
+    <script src="{% static 'assets/libs/jquery.counterup/jquery.counterup.min.js'%}"></script>
+
+    <!-- Required datatable js -->
+    <script src="{% static 'assets/libs/datatables.net/js/jquery.dataTables.min.js'%}"></script>
+    <script src="{% static 'assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js'%}"></script>
+    <!-- Buttons examples -->
+    <script src="{% static 'assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js'%}"></script>
+    <script src="{% static 'assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js'%}"></script>
+    <script src="{% static 'assets/libs/jszip/jszip.min.js'%}"></script>
+    <script src="{% static 'assets/libs/pdfmake/build/pdfmake.min.js'%}"></script>
+    <script src="{% static 'assets/libs/pdfmake/build/vfs_fonts.js'%}"></script>
+    <script src="{% static 'assets/libs/datatables.net-buttons/js/buttons.html5.min.js'%}"></script>
+    <script src="{% static 'assets/libs/datatables.net-buttons/js/buttons.print.min.js'%}"></script>
+    <script src="{% static 'assets/libs/datatables.net-buttons/js/buttons.colVis.min.js'%}"></script>
+    
+    <!-- Responsive examples -->
+    <script src="{% static 'assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js'%}"></script>
+    <script src="{% static 'assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js'%}"></script>
+
+    <!-- Datatable init js -->
+    <script src="{% static 'assets/js/pages/datatables.init.js'%}"></script>
+
+    <!-- App js -->
+    {% comment %} <script src="{% static 'assets/js/app.js'%}"></script> {% endcomment %}
+
+</body>
+</html>
